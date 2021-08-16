@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Push react image 2') { 
             steps {
-                echo ‘stage 2’
+                echo ‘stage 2’ 
             }
         }
         stage('Build  Backend react image 3') { 
             steps {
-                echo ‘Stage 3’
+                echo ‘Stage 3’ 
             }
         }
     }
