@@ -21,6 +21,16 @@ pipeline {
                 echo 'stage4'
             }
         }
-
+        def remote = [:]
+        remote.name = 'test'
+        remote.host = '52.60.236.156'
+        remote.user = 'ubuntu'
+        remote.credentals = 'pemKeyStageOrderhive'
+        remote.allowAnyHosts = true
+        stage('Remote SSH') {
+        sshCommand remote: remote, command: "ls -lrt"
+        sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
+            }
+        }
     }
 }
