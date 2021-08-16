@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    
+    stage('Build React Image') {
+    echo "stage1"
+}
+    stage('Push React Image') {
+    echo "stage2"
+}
+    stage('Build Backend Image') {
+    echo "stage3"
+}
+    stage('Push Backend Image') {
+     echo "stage4"
+}
+    stage('SSH into the server') {
+    steps {
+        script {
+          def remote = [:]
+    remote.name = 'test'
+    remote.host = '52.60.236.156'
+    remote.user = 'ubuntu'
+    remote.credentals = 'pemKeyStageOrderhive'
+    remote.allowAnyHosts = true
+    stage('Remote SSH') {
+      sshCommand remote: remote, command: "ls -lrt"
+      sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
+                }
+            
+        }
+        
+    }
