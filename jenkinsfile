@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Build React Image') { 
             steps {
-                echo ‘stage 1’
+                echo ‘Build stage 1’
             }
         }
         stage('Push react image 2') { 
             steps {
-                echo ‘stage 2’ 
+                echo ‘Push stage 2’ 
             }
         }
-        stage('Build  Backend react image 3') { 
+        stage('Build Backend react image 3') { 
             steps {
-                echo ‘Stage 3’ 
+                echo ‘Backend Stage 3’ 
             }
         }
     }
