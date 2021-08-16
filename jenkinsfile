@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build react Image') {
+            steps {
+                echo 'stage1'
+            }
+        }
+        stage('push react image'){
+            steps {
+                echo 'stage2'
+            }
+        }
+        stage('Build Backend image'){
+            steps {
+                echo 'stage3'
+            }
+        }
+        stage('Push backend image'){
+            steps{
+                echo 'stage4'
+            }
+        }
+
+    }
+}
