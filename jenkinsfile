@@ -24,6 +24,10 @@ pipeline {
             steps{
                 echo "Testing123"
                 sh 'ssh --help'
+                 git branch: 'main',
+                url: 'ssh://github.com/venkatkagga/test16.git'
+
+            sh "ls -lat"
             }
         }
         stage('SSH Login'){
