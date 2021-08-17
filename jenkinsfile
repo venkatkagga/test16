@@ -5,6 +5,7 @@ pipeline {
     stages{
         stage("Login to the instance") {
             steps{
+                cleanWs()
                 sshagent (credentials: ['Test123']){
                     sh 'echo "Hello World"'
                 }
