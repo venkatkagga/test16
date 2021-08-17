@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                 echo "Building"
-                withCredentials([sshUserPrivateKey(credentialsId: 'Test123', keyFileVariable: KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'Test123', keyFileVariable: 'KEY')]) {
                     sh 'ssh -i ${KEY} ubuntu@52.60.236.156'
                 }
                 //sleep 5
