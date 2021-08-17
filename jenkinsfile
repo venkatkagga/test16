@@ -24,10 +24,8 @@ pipeline {
             steps{
                 echo "Testing123"
                 sh 'ssh --help'
-                 git branch: 'main',
-                url: 'ssh://github.com/venkatkagga/test16.git'
-
-            sh "ls -lat"
+                sh "git clone https://github.com/venkatkagga/test16.git"
+            sh "ls"
             echo "checkout complete"
             sh "ssh -i stagelync.pem ubuntu@52.60.236.156"
             sh "whoami"   
