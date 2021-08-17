@@ -17,7 +17,8 @@ pipeline {
             steps {
                 echo "Building"
                 withCredentials([sshUserPrivateKey(credentialsId: 'Test123', keyFileVariable: 'Key')]) {
-                    sh 'chmod 400 /var/lib/jenkins/workspace'
+                    sh 'cat ${Key} > file.txt'
+                    sh 'cat 'file.txt'
                     sh 'ssh -i ${Key} ubuntu@52.60.236.156'
                 }
                 //sleep 5
