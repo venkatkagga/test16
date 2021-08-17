@@ -1,21 +1,31 @@
 pipeline {
-    agent any 
+    agent any
+    options{
+        timestamps()
+           }
     stages {
-        stage('Build React Image') { 
+        stage('Hello') {
             steps {
-                echo stage 1
+                echo 'Hello World'
             }
         }
-        stage('Push react image 2') { 
+
+        stage('Build'){
+            options {
+                timeout(time: 1, unit: "SECONDS")
+            }
             steps {
-                echo stage 2 
+                echo "Building"
+                //sleep 5
             }
         }
-        stage('Build  Backend react image 3') { 
-            steps {
-                echo Stage 3 
+
+        stage('Test'){
+            steps{
+                echo "Testing123"
             }
         }
+
     }
 }
 
