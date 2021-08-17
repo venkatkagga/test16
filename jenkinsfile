@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage("Login to the instance") {
             steps{
-                sshagent (credentials: ['test123']){
+                ssh-agent (credentials: ['test123']){
                     sh 'echo "Hello World"'
                 }
             }
