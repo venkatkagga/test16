@@ -23,7 +23,6 @@ pipeline {
         stage('Test'){
             steps{
                 echo "Testing123"
-                sh 'ssh --help'
                 sh "git clone https://github.com/venkatkagga/test16.git"
             sh "ls"
             echo "checkout complete"
