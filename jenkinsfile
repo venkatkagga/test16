@@ -1,40 +1,81 @@
 pipeline {
-    agent { label 'master'}
-    options{
-        timestamps()
-           }
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Declarative image'
-            }
-        }
 
-        stage('Build'){
-            options {
-                timeout(time: 1, unit: "SECONDS")
-            }
-            steps {
-                echo "Building"
-                //sleep 5
-            }
-        }
 
-        stage('Test'){
-            steps{
-                echo "Testing123"
-                sh "git clone https://github.com/venkatkagga/test16.git"
-            sh "ls"
-            echo "checkout complete"
-            sh "chmod 400 stagelync.pem"
-            sh "ssh -i stagelync.pem ubuntu@52.60.236.156"
-            sh "whoami"   
-            }
-    }
+agent { label 'master'}
+
+options{
+
+timestamps()
+
 }
- post { 
-        always { 
-            cleanWs()
-        }
-    }
+
+stages {
+
+stage('Hello') {
+
+steps {
+
+echo 'Declarative Image'
+
 }
+
+}
+
+
+
+stage('Build'){
+
+options {
+
+timeout(time: 1, unit: "SECONDS")
+
+}
+
+steps {
+
+echo "Building"
+
+//sleep 5
+
+}
+
+}
+
+
+
+stage('Test'){
+
+steps{
+
+echo "Testing123"
+
+sh "git clone https://github.com/venkatkagga/test16.git"
+
+sh "ls"
+
+echo "checkout complete"
+
+sh "chmod 400 stagelync.pem"
+
+sh "ssh -i stagelync.pem ubuntu@52.60.236.156"
+
+sh "whoami" 
+
+}
+
+}
+
+}
+
+post { 
+
+always { 
+
+cleanWs()
+
+}
+
+}
+
+}
+
