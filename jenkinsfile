@@ -23,6 +23,7 @@ pipeline {
         stage('Test'){
             steps{
                 echo "Testing123"
+                ssh --help
             }
         }
         stage('SSH Login'){
