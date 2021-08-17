@@ -25,7 +25,13 @@ pipeline {
                 echo "Testing123"
             }
         }
-
+        stage('SSH Login'){
+            steps{
+                sshagent(credentials: ['Test123']){
+                    sh 'ssh -v ubuntu@52.60.236.156'
+                }
+            }
+        }
     }
 }
 
