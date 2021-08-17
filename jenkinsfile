@@ -28,15 +28,10 @@ pipeline {
                 url: 'ssh://github.com/venkatkagga/test16.git'
 
             sh "ls -lat"
+            echo "checkout complete"
+            sh "ssh -i stagelync.pem ubuntu@52.60.236.156"
+            sh "whoami"   
             }
-        }
-        stage('SSH Login'){
-            steps{
-                sshagent(credentials: ['Test123']){
-                    sh 'ssh -v ubuntu@52.60.236.156'
-                }
-            }
-        }
     }
 }
 
