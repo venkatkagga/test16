@@ -20,12 +20,12 @@ pipeline {
             steps {
                 echo "Building"
                 withCredentials([string(credentialsId: 'Test123', variable: 'SSH_PASSPHRASE')]) {
-                
+                sh """
                        echo 'echo \$SSH_PASSPHRASE' > ~/.ssh/tmp && chmod 700 ~/.ssh/tmp
                        ls -l
                         //scp -o 'StrictHostKeyChecking no' -r deploy ubuntu@52.60.236.156:/tmp
             ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156
-            }
+                    """
                     }
                 //sleep 5
             }
