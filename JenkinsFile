@@ -1,0 +1,38 @@
+pipeline {
+    agent { label 'master'}
+    options{
+        timestamps()
+           }
+    stages {
+        stage('Git Checkout') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+
+        stage('Build'){
+            options {
+                timeout(time: 1, unit: "SECONDS")
+            }
+            steps {
+                echo "Building"
+                withCredentials([sshUserPrivateKey(credentialsId: 'Test123', keyFileVariable: 'Key')]) {
+                    sh 'ssh -i ${Key} ubuntu@52.60.236.156'
+                    sh 'ls'
+                }
+                //sleep 5
+            }
+        }
+
+        stage('Test'){
+            steps{
+                echo "Testing123"   
+            }
+    }
+}
+ post { 
+        always { 
+            cleanWs()
+        }
+    }
+}
