@@ -19,14 +19,13 @@ pipeline {
             }
             steps {
                 echo "Building"
-                 sshagent(['stage-orderhive-ssh-agent-key']) {
+                 sshagent(['Test123']) {
                     sh """
             echo '#!/bin/bash
             set -e
             hostname
             pwd
             ls
-            
             ' > deploy
             chmod +x deploy
             scp -o 'StrictHostKeyChecking no' -r deploy ubuntu@52.60.236.156:/tmp
