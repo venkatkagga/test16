@@ -20,8 +20,8 @@ pipeline {
             steps {
                 echo "Building"
                 withCredentials([sshUserPrivateKey(credentialsId: 'Test123', keyFileVariable: 'Key')]) {
-                    sh 'ssh -i ${Key} ubuntu@52.60.236.156'
-                    sh 'ls'
+                    //sh 'ssh -i ${Key} ubuntu@52.60.236.156'
+                    bat 'dir'
                 }
                 //sleep 5
             }
