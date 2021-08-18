@@ -21,16 +21,18 @@ pipeline {
                 echo "Building"
                  sshagent(['Test123']) {
                     sh """
-            ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156
-            hostname
+                    echo '#!/bin/bash  
+                          hostname
             cd /home/ubuntu/docker/frontend/code
             git pull origin master
             chmod -R 777 /home/ubuntu/docker/frontend/code
             chown -R www-data:www-data /home/ubuntu/docker/frontend/code
             cd /home/ubuntu/docker/
             
-            ls -l
-            """
+            ls -l ' > script.sh
+            cat script.sh
+            ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156 'bash -s -- uno' < script.sh
+                        """
                  }
                 //sleep 5
             }
