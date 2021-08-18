@@ -20,10 +20,12 @@ pipeline {
             steps {
                 echo "Building"
                 withCredentials([sshUserPrivateKey(credentialsId: 'Test123', keyFileVariable: 'Key')]) {
-                    sh 'ls -l'
-                    sh 'ssh -t -t ubuntu@52.60.236.156 -i ${Key}'
-                    sh 'ls'
-                }
+                    sh '''
+                   scp -o 'StrictHostKeyChecking no' -r deploy ubuntu@52.60.236.156:/tmp
+            ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156 /tmp/deploy
+            ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156 rm -rf /tmp/deploy
+                    '''
+                    }
                 //sleep 5
             }
         }
