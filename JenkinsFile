@@ -21,16 +21,8 @@ pipeline {
                 echo "Building"
                  sshagent(['Test123']) {
                     sh """
-            echo '#!/bin/bash
-            set -e
-            hostname
-            pwd
-            ls
-            ' > deploy
-            chmod +x deploy
-            scp -o 'StrictHostKeyChecking no' -r deploy ubuntu@52.60.236.156:/tmp
-            ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156 /tmp/deploy
-            ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156 rm -rf /tmp/deploy
+            scp -o 'StrictHostKeyChecking no' ubuntu@52.60.236.156:/tmp
+            ssh -o 'StrictHostKeyChecking no' -t -t ubuntu@52.60.236.156
             """
                  }
                 //sleep 5
