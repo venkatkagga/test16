@@ -1,5 +1,5 @@
 pipeline {
-    agent { label '!master'}
+    agent { label 'master'}
     options{
         timestamps()
            }
@@ -20,8 +20,8 @@ pipeline {
             steps {
                 echo "Building"
                 withCredentials([sshUserPrivateKey(credentialsId: 'Test123', keyFileVariable: 'Key')]) {
-                    bat 'ssh ubuntu@52.60.236.156'
-                    bat 'dir'
+                    sh 'ssh ubuntu@52.60.236.156'
+                    sh 'ls'
                 }
                 //sleep 5
             }
