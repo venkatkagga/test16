@@ -22,6 +22,13 @@ pipeline {
                  sshagent(['Test123']) {
                     sh """
             ssh -o 'StrictHostKeyChecking no' -t -t ubuntu@52.60.236.156
+            cd /home/ubuntu/docker/frontend/code
+            git pull origin master
+            chmod -R 777 /home/ubuntu/docker/frontend/code
+            chown -R www-data:www-data /home/ubuntu/docker/frontend/code
+            cd /home/ubuntu/docker/
+            
+            ls -l
             """
                  }
                 //sleep 5
