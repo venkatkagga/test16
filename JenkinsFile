@@ -21,7 +21,6 @@ pipeline {
                 echo "Building"
                  sshagent(['Test123']) {
                     sh """
-            scp -o 'StrictHostKeyChecking no' ubuntu@52.60.236.156:/tmp
             ssh -o 'StrictHostKeyChecking no' -t -t ubuntu@52.60.236.156
             """
                  }
