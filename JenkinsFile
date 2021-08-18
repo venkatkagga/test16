@@ -25,8 +25,8 @@ pipeline {
                           hostname
             cd /home/ubuntu/docker/frontend/code
             git pull origin master
-            chmod -R 777 /home/ubuntu/docker/frontend/code
-            chown -R www-data:www-data /home/ubuntu/docker/frontend/code
+            #chmod -R 777 /home/ubuntu/docker/frontend/code
+            #chown -R www-data:www-data /home/ubuntu/docker/frontend/code
             cd /home/ubuntu/docker/
             
             ls -l ' > script.sh
