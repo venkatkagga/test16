@@ -19,6 +19,7 @@ pipeline {
             }
             steps {
                 echo "Building"
+                bat 'cd C:/jenkins/workspace/'
                 withCredentials([sshUserPrivateKey(credentialsId: 'Test123', keyFileVariable: 'Key')]) {
                     bat 'ssh ubuntu@52.60.236.156 -i ${Key}'
                     bat 'dir'
