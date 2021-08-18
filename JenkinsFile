@@ -25,6 +25,7 @@ pipeline {
                        ls -l
                         //scp -o 'StrictHostKeyChecking no' -r deploy ubuntu@52.60.236.156:/tmp
             ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156
+            }
                     }
                 //sleep 5
             }
