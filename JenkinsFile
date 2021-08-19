@@ -14,6 +14,12 @@ pipeline {
             options {
                 timeout(time: 1, unit: "HOURS")
             }
+            when {
+                expression { 
+                   return params.depolyment == 'frontend'
+                }
+            }
+
             steps {
                 echo "Building"
                  sshagent(['Test123']) {
@@ -41,6 +47,12 @@ pipeline {
         stage('Build Backend'){
             options {
                 timeout(time: 1, unit: "HOURS")
+            }
+            
+            when {
+                expression { 
+                   return params.depolyment == 'backend'
+                }
             }
             steps {
                 echo "Building Backend"
