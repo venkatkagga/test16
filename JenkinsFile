@@ -7,7 +7,7 @@ pipeline {
         choice(
             choices: ['frontend' , 'backend'],
             description: '',
-            name: 'deployment')
+            name: 'DEPLOYMENT')
     }
     stages {
         stage('Git Checkout') {
@@ -22,7 +22,7 @@ pipeline {
             }
             when {
                 expression { 
-                   return params.depolyment == 'frontend'
+                    params.DEPLOYMENT == 'frontend'
                 }
             }
 
@@ -57,7 +57,7 @@ pipeline {
             
             when {
                 expression { 
-                   return params.depolyment == 'backend'
+                   params.DEPLOYMENT == 'backend'
                 }
             }
             steps {
