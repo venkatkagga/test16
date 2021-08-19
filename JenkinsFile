@@ -3,9 +3,6 @@ pipeline {
     options{
         timestamps()
            }
-     environment {
-    PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"
-    }
     stages {
         stage('Git Checkout') {
             steps {
