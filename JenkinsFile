@@ -9,7 +9,6 @@ pipeline {
                 echo 'Hello World'
             }
         }
-
         stage('Build frontend'){
             options {
                 timeout(time: 1, unit: "HOURS")
@@ -19,7 +18,6 @@ pipeline {
                     params.DEPLOYMENT == 'frontend'
                 }
             }
-
             steps {
                 echo "Building"
                  sshagent(['Test123']) {
@@ -72,9 +70,6 @@ pipeline {
                 //sleep 5
             }
         }
-
-
-
         stage('Test'){
             steps{
                 echo "Testing123"   
