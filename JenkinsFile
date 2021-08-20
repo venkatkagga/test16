@@ -2,13 +2,7 @@ pipeline {
     agent { label 'master'}
     options{
         timestamps()
-           }
-     parameters {
-        choice(
-            choices: ['frontend' , 'backend'],
-            description: '',
-            name: 'DEPLOYMENT')
-    }
+           }     
     stages {
         stage('Git Checkout') {
             steps {
