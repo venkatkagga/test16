@@ -34,14 +34,11 @@ pipeline {
                           hostname
             cd /home/ubuntu/docker/frontend/code
             git pull origin master
-            #chmod -R 777 /home/ubuntu/docker/frontend/code
-            #chown -R www-data:www-data /home/ubuntu/docker/frontend/code
             cd /home/ubuntu/docker/
             ls -l
             docker-compose build --no-cache --force-rm frontend
             docker-compose up -d --force-recreate --no-deps frontend
             docker ps -a
-            #docker logs -f frontend
             ' > script.sh
             cat script.sh
             ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156 'bash -s -- uno' < script.sh
@@ -68,14 +65,11 @@ pipeline {
                           hostname
             cd /home/ubuntu/docker/backend/code
             git pull origin master
-            #chmod -R 777 /home/ubuntu/docker/backend/code
-            #chown -R www-data:www-data /home/ubuntu/docker/backend/code
             cd /home/ubuntu/docker/
             ls -l
             docker-compose build --no-cache --force-rm backend
             docker-compose up -d --force-recreate --no-deps backend
             docker ps -a
-            #docker logs -f backend
             ' > script.sh
             cat script.sh
             ssh -o 'StrictHostKeyChecking no' -t ubuntu@52.60.236.156 'bash -s -- uno' < script.sh
